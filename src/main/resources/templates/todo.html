@@ -7,6 +7,7 @@
   <body>
     <h1 th:text="'TODOS FOR TODAY:'"></h1>
     <a th:href="@{/todo/add}" th:text="'Add new todo'"></a>
+    <p />
     <table border="1px solid black">
       <tr>
         <th th:text="'ID'">ID</th>
@@ -17,11 +18,10 @@
       <tr th:each="todo : ${todos}">
         <td th:text="${todo.id}">id</td>
         <td th:text="${todo.title}">action</td>
-        <td th:text="${todo.isDone}">done</td>
-        <td th:text="${todo.isUrgent}">urgent</td>
-        <td >
-          <a th:href="${'/todo/' + todo.getId() + '/delete'}" th:text="'delete'">delete</a>
-        </td>
+        <td th:text="${todo.isDone()}">done</td>
+        <td th:text="${todo.isUrgent()}">urgent</td>
+        <td ><a th:href="${'/todo/' + todo.getId() + '/delete'}" th:text="'delete'">delete</a></td>
+        <td ><a th:href="${'/todo/' + todo.getId() + '/edit'}" th:text="'edit'">edit</a></td>
       </tr>
     </table>
   </body>
